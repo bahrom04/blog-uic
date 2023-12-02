@@ -1,13 +1,20 @@
 from django.db import models
-
+from datetime import datetime
+from django.urls import reverse
 
 
 class Category(models.Model):
     title = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.title
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.title
 
 
 class Post(models.Model):
@@ -15,14 +22,19 @@ class Post(models.Model):
     title = models.CharField(max_length=256,)
     description = models.CharField(max_length=256,)
     content = models.TextField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    tag = models.ManyToManyField(Tag)
+    slug = models.SlugField(max_length=256)
 
+    # comment_count = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
     
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    # tag = models.ManyToManyField(Tag)
-
-    comment_count = models.IntegerField(default=0)
-
-    published_at = models.DateTimeField(auto_now_add=True)
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'slug': self.slug})
 
 
 class Comment(models.Model):
