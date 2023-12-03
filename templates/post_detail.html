@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 
+    Post
+{% endblock %}
+
+{% block content %}
+
+<main class="content">
+    <div>
+      <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+        <i class="ri-menu-line ri-xl"></i>
+      </a>
+
+      <h2 class="mb-3 font-weight-bold">{{ post.title }}</h2>
+      <span class="badge text-bg-info">{{ post.created_at }}</span>
+
+      {% if post.image %}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+      {% endif %}
+      <p>{{ post.content|safe }}</p>
+      
+        {% for tag in tags %}
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">{{ tag }}</a>
+        {% endfor %}
+    
+    
+    </div>
+    <br>
+
+
+
+    
+   
+    <footer class="footer">
+      <small style="margin-bottom: 20px; display: inline-block">
+        © 2023
+        <a target="_blank" href="https://bahrombek.uz"> bahrombek.uz</a>
+      </small>
+      <br />
+
+      <div class="social-links">
+        <a href="https://github.com/bahrom04" target="_blank">
+          <i class="ri-github-fill ri-xl"></i>
+        </a>
+        
+        <a href="https://www.linkedin.com/in/bahrom-bek-6b8a49212/" target="_blank">
+          <i class="ri-linkedin-box-fill ri-xl"></i>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+{% endblock %}
