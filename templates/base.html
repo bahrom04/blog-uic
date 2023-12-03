@@ -22,10 +22,10 @@
     </head>
 
     <body>
-        <div class="wrapper">
+        <div class="wrapper container-fluid">
             {% block sidebar %} {% endblock%}
             
-            <div class="content">
+            <div class="justify-content-between ">
                 <!-- Navbar Start -->
                 <div class="container p-0">
                     <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
@@ -49,7 +49,9 @@
                 {% block about_start %} {% endblock %}
                 {% block carousel %} {% endblock %}
                 <!-- end about -->
-                
+
+                <!-- Blog details -->
+                {% block blog_detail %} {% endblock %}
                 
                 <!-- Blog List Start -->
                 {% block blog_list %} {% endblock %}
@@ -71,7 +73,7 @@
                 <!-- Footer Start -->
                 <div class="container py-4 bg-secondary text-center">
                     <p class="m-0 text-white">
-                        &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="{% static 'https://htmlcodex.com' %}">HTML Codex</a>
+                        &copy; <a class="text-white font-weight-bold" href="#">bahromber.uz </a>. All Rights Reserved 
                     </p>
                 </div>
                 <!-- Footer End -->
