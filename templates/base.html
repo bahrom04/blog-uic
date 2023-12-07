@@ -16,13 +16,25 @@
 
     <!-- Title -->
      <title> {% block title%} Pro Sidebar {% endblock %} </title>
+     
+     <!-- <style>
+      .content{
+        max-width: 800px;
+        box-sizing: border-box; 
+        margin: 0 auto;  
+        margin-left: auto;
+        
+      }
+  </style> -->
+
   </head>
 
-  <body>
+  <body style="font-family: source sans pro,sans-serif;">
     <div class="layout has-sidebar fixed-sidebar fixed-header">
       <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
         <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
         <div class="image-wrapper">
+          <!-- sidebar background image -->
           <img src="{% static 'assets/images/sidebar-bg.jpg' %}" alt="sidebar background" />
         </div>
         <div class="sidebar-layout">
@@ -124,5 +136,5 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+  <script src="https://kit.fontawesome.com/0e35ab6147.js" crossorigin="anonymous"></script>
 </html>

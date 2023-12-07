@@ -6,19 +6,19 @@
 
 {% block content %}
 
-<main class="content">
+<main class="content" style=" max-width: 800px; margin: 0 10px ;  padding: 0 10px;">
     <div>
       <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
         <i class="ri-menu-line ri-xl"></i>
       </a>
 
-      <h1 style="margin-bottom: 0">Resent Posts</h1>
-      
+      <br>
+      <h2 class="name font-weight-bold mb-1" style="font-size: 40px; font-weight: bold;">Resent Posts</h2>
     </div>
     <br>
 
 <!-- cards -->
-<div class="row row-cols-1 row-cols-md-4 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4">
         {% for post in posts %}
     <div class="col">
         <div class="card">
@@ -28,6 +28,8 @@
         <div class="card-body">
             <h4 class="card-title">{{ post.title }}</h4>
             <span class="badge text-bg-info">{{ post.created_at }}</span>
+            <span> <i class="fa-solid fa-eye"></i></i>{{ post.views }}</span>
+
             {% for tag in tags %}
                 <span class="badge rounded-pill text-bg-dark">{{ tag }}</span>
             {% endfor %}
@@ -61,7 +63,9 @@
           <i class="ri-linkedin-box-fill ri-xl"></i>
         </a>
       </div>
+      <br>
     </footer>
+
   </main>
 
 {% endblock %}

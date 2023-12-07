@@ -50,5 +50,11 @@ class PostList(generic.ListView):
 
         tags = post.tag.all()
         context['tags'] = tags
+
+        if post:
+            post.views += 1
+            post.save()
         
         return context
+    
+    
