@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 
-
 class About(models.Model):
     content = RichTextUploadingField()
 
@@ -39,6 +38,10 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('post', kwargs={'slug': self.slug})
+    
+    # def update_views(self, *args, **kwargs):
+    #     self.views = self.views + 1
+    #     super(Post, self).save(*args, **kwargs)
     
     
     

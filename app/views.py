@@ -52,9 +52,9 @@ class PostList(generic.ListView):
         context['tags'] = tags
 
         if post:
-            post.views += 1
+            post.views +=1
             post.save()
-        
+
         return context
     
     

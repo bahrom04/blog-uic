@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %} 
-    Post
+Post
 {% endblock %}
 
+{% block style %} 
+<style>
+  blockquote{
+    font-size: 1.1em;
+  width:90%;
+  margin:30px auto;
+  font-family:Open Sans;
+  font-style:italic;
+  color: #555555;
+  padding:1em 10px 1em 7px;
+  border-left:8px solid #78C0A8 ;
+  line-height:1.6;
+  position: relative;
+  background:#EDEDED;
+  }
+</style>
+{% endblock %}
 
 {% block content %}
 
@@ -22,7 +40,12 @@
       {% if post.image %}
                 <img src="{{ post.image.url }}" class="card-img-top" alt="...">
       {% endif %}
-      <p>{{ post.content|safe }}</p>
+
+      
+      {{ post.content | safe }}
+      
+      
+      
 
       <!-- <h3>Tags:</h3>
         {% for tag in tags %}

@@ -30,12 +30,14 @@ INSTALLED_APPS = [
 
     "ckeditor",
     "ckeditor_uploader",
-    ""
+
     # Apps
-    'app',
+    "app"
+    
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 
 MIDDLEWARE = [
@@ -141,7 +143,11 @@ CKEDITOR_CONFIGS = {
             'extraPlugins': ','.join([
                 'codesnippet',
             ]),
+            'stylesSet': [
+            {'name': 'Blockquote', 'element': 'blockquote'},
+        ],
         },
+     
 }
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
