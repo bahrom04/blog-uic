@@ -1,15 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.template.defaultfilters import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
-
-class About(models.Model):
-    content = RichTextUploadingField()
-
-    class Meta:
-        verbose_name_plural = "About"
-
-    def __str__(self):
-        return self.content
 
 
 class Tag(models.Model):
@@ -39,10 +31,12 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post', kwargs={'slug': self.slug})
     
-    # def update_views(self, *args, **kwargs):
-    #     self.views = self.views + 1
-    #     super(Post, self).save(*args, **kwargs)
-    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        
+        super(Post, self).save(*args, **kwargs)
+
     
     
    
