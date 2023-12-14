@@ -6,7 +6,10 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Tag(models.Model):
     title = models.CharField(max_length=128)
-
+    
+    def tag_name(self):
+        return self.title
+    
     def __str__(self):
         return self.title
 
@@ -17,7 +20,7 @@ class Post(models.Model):
     short_description = models.CharField(max_length=256,)
     content = RichTextUploadingField()
     tag = models.ManyToManyField(Tag, related_name='posts', blank=True)
-    slug = models.SlugField(max_length=256)
+    slug = models.SlugField(max_length=256, blank=True)
     views = models.IntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
